@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Local data (not for version control)
+data/leads.csv
+data/analytics.csv
+data/reports/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vercel
+.vercel
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.production

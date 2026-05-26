@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Hub | Quantum-Safe</title>
+    <meta name="description" content="Learn about quantum threats, post-quantum cryptography, and how to protect your organization. Clear explanations for business leaders.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Quantum-Safe">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-192.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon">Q</span>
+                <span class="logo-text">Quantum-Safe</span>
+            </a>
+            <div class="nav-links">
+                <a href="education.html" class="nav-link">Learn</a>
+                <a href="assessment.html" class="nav-link">Assessment</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <a href="assessment.html" class="nav-cta">Start Assessment</a>
+        </div>
+    </nav>
+
+    <main class="education-page">
+        <!-- Hero -->
+        <section class="education-hero">
+            <div class="container">
+                <h1>Education Hub</h1>
+                <p>Clear, actionable explanations of quantum threats and post-quantum cryptography for business leaders and security teams.</p>
+            </div>
+        </section>
+
+        <!-- Modules -->
+        <section class="education-modules">
+            <div class="container">
+                <div class="modules-grid">
+                    <!-- Module 1: The Quantum Threat -->
+                    <div class="module-card" id="module-threat">
+                        <div class="module-header">
+                            <span class="module-number">Module 1</span>
+                            <h3>The Quantum Threat in 3 Visuals</h3>
+                        </div>
+                        <div class="module-body">
+                            <p>Understand why quantum computers threaten today's encryption and what "Harvest Now, Decrypt Later" means for your data.</p>
+                            <ul class="module-topics">
+                                <li>Why RSA and ECC will fail against quantum</li>
+                                <li>The HNDL attack explained</li>
+                                <li>Timeline: When does this become real?</li>
+                            </ul>
+                            <a href="#threat-detail" class="module-cta">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Module 2: Quantum Computing Basics -->
+                    <div class="module-card" id="module-quantum">
+                        <div class="module-header">
+                            <span class="module-number">Module 2</span>
+                            <h3>Qubits, Decoherence & Logical Qubits</h3>
+                        </div>
+                        <div class="module-body">
+                            <p>Demystify quantum computing with simple analogies. Understand why progress headlines can be misleading.</p>
+                            <ul class="module-topics">
+                                <li>What makes quantum computers different</li>
+                                <li>Physical vs logical qubits explained</li>
+                                <li>Why building quantum computers is so hard</li>
+                            </ul>
+                            <a href="#quantum-detail" class="module-cta">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Module 3: PQC Explained -->
+                    <div class="module-card" id="module-pqc">
+                        <div class="module-header">
+                            <span class="module-number">Module 3</span>
+                            <h3>What Is Post-Quantum Cryptography?</h3>
+                        </div>
+                        <div class="module-body">
+                            <p>Learn about the NIST-approved algorithms that will protect your data in the quantum era.</p>
+                            <ul class="module-topics">
+                                <li>ML-KEM for encryption</li>
+                                <li>ML-DSA for digital signatures</li>
+                                <li>Why lattice-based cryptography works</li>
+                            </ul>
+                            <a href="#pqc-detail" class="module-cta">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Module 4: Implementation -->
+                    <div class="module-card" id="module-impl">
+                        <div class="module-header">
+                            <span class="module-number">Module 4</span>
+                            <h3>Hybrid Crypto & Crypto Agility</h3>
+                        </div>
+                        <div class="module-body">
+                            <p>Practical strategies for transitioning to quantum-safe cryptography without disrupting operations.</p>
+                            <ul class="module-topics">
+                                <li>The hybrid approach explained</li>
+                                <li>Building crypto agility into your systems</li>
+                                <li>Migration planning essentials</li>
+                            </ul>
+                            <a href="#impl-detail" class="module-cta">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Content Sections -->
+        <section class="education-content" id="threat-detail">
+            <div class="container">
+                <div class="content-section">
+                    <h2>The Quantum Threat Explained</h2>
+
+                    <div class="content-block">
+                        <h3>Why Current Encryption Will Fail</h3>
+                        <p>Today's public-key encryption (RSA, ECC) relies on mathematical problems that classical computers find extremely difficult to solve:</p>
+                        <ul>
+                            <li><strong>RSA:</strong> Based on the difficulty of factoring large numbers (e.g., finding the two prime factors of a 2048-bit number)</li>
+                            <li><strong>ECC:</strong> Based on the discrete logarithm problem on elliptic curves</li>
+                        </ul>
+                        <p>A classical supercomputer would need longer than the age of the universe to break RSA-2048. But in 1994, mathematician Peter Shor developed an algorithm that, running on a sufficiently powerful quantum computer, could break RSA-2048 in hours.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Harvest Now, Decrypt Later (HNDL)</h3>
+                        <p>Here's the uncomfortable reality: adversaries don't need to wait for quantum computers to benefit from them.</p>
+                        <div class="highlight-box">
+                            <p><strong>The Attack Pattern:</strong></p>
+                            <ol>
+                                <li>Today: Intercept and store encrypted data (network traffic, stored files, communications)</li>
+                                <li>Store: Keep the encrypted data in archives</li>
+                                <li>Later: When quantum computers mature, decrypt the historical data</li>
+                            </ol>
+                        </div>
+                        <p>Nation-state actors are already doing this. If your data will still be sensitive in 10-15 years, it's at risk today.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>The Timeline</h3>
+                        <p>Estimates for "Q-Day" (when quantum computers can break RSA-2048) range from 2030-2035. But consider Mosca's Theorem:</p>
+                        <div class="formula-box">
+                            <p>If <strong>(Data Shelf Life) + (Migration Time) > (Time Until Q-Day)</strong>, your data is at risk.</p>
+                        </div>
+                        <p>With 3-5 year migration timelines and 10-20 year data sensitivity periods, many organizations are already in the risk window.</p>
+                    </div>
+
+                    <div class="content-cta">
+                        <p>How prepared is your organization?</p>
+                        <a href="assessment.html" class="btn btn-primary">Take the Readiness Assessment</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education-content alt-bg" id="quantum-detail">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Understanding Quantum Computing</h2>
+
+                    <div class="content-block">
+                        <h3>Classical Bits vs Qubits</h3>
+                        <p><strong>Classical bit:</strong> Either 0 or 1. Like a light switch - on or off.</p>
+                        <p><strong>Qubit:</strong> Can be 0, 1, or a "superposition" of both simultaneously. Like a coin spinning in the air - it's both heads and tails until it lands.</p>
+                        <p>This superposition allows quantum computers to explore many possibilities at once, making them powerful for specific problems - including breaking encryption.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Why "1 Million Qubits" Headlines Are Misleading</h3>
+                        <p>There's a critical distinction between <strong>physical qubits</strong> and <strong>logical qubits</strong>:</p>
+
+                        <div class="comparison-grid">
+                            <div class="comparison-item">
+                                <h4>Physical Qubits</h4>
+                                <ul>
+                                    <li>Actual hardware components</li>
+                                    <li>~1% error rate (very high)</li>
+                                    <li>Lose quantum properties quickly</li>
+                                    <li>Current systems: 50-1,000</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item highlight">
+                                <h4>Logical Qubits</h4>
+                                <ul>
+                                    <li>Created from many physical qubits</li>
+                                    <li>Error-corrected and reliable</li>
+                                    <li>What's needed for real computation</li>
+                                    <li>~500 physical = 1 logical</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p>Breaking RSA-2048 requires approximately 4,000 logical qubits. With current technology, that means roughly 2 million physical qubits with error correction - far beyond today's capabilities.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Decoherence: Why Quantum Computers Are Hard to Build</h3>
+                        <p>Qubits are extremely fragile. Any interaction with the environment - heat, vibration, electromagnetic radiation - causes "decoherence," destroying the quantum state.</p>
+                        <p>That's why quantum computers operate at temperatures colder than outer space (-273°C) and require extraordinary isolation. Building reliable, large-scale quantum computers is one of the greatest engineering challenges of our time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education-content" id="pqc-detail">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Post-Quantum Cryptography</h2>
+
+                    <div class="content-block">
+                        <h3>A New Mathematical Foundation</h3>
+                        <p>Post-quantum cryptography uses mathematical problems that remain hard for <em>both</em> classical and quantum computers. Unlike RSA's factoring problem, these don't have efficient quantum solutions.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>NIST-Approved Algorithms (August 2024)</h3>
+
+                        <div class="algorithm-cards">
+                            <div class="algorithm-card">
+                                <h4>ML-KEM</h4>
+                                <p class="algorithm-subtitle">Module-Lattice Key Encapsulation Mechanism</p>
+                                <p><strong>Purpose:</strong> General data encryption</p>
+                                <p><strong>Use Cases:</strong> TLS connections, encrypted storage, secure communications</p>
+                                <p><strong>Based On:</strong> Lattice mathematics</p>
+                                <p><strong>Status:</strong> FIPS 203 - Ready for deployment</p>
+                            </div>
+
+                            <div class="algorithm-card">
+                                <h4>ML-DSA</h4>
+                                <p class="algorithm-subtitle">Module-Lattice Digital Signature Algorithm</p>
+                                <p><strong>Purpose:</strong> Digital signatures</p>
+                                <p><strong>Use Cases:</strong> Code signing, document authentication, certificate chains</p>
+                                <p><strong>Based On:</strong> Lattice mathematics</p>
+                                <p><strong>Status:</strong> FIPS 204 - Ready for deployment</p>
+                            </div>
+
+                            <div class="algorithm-card">
+                                <h4>SLH-DSA</h4>
+                                <p class="algorithm-subtitle">Stateless Hash-Based Digital Signature</p>
+                                <p><strong>Purpose:</strong> Alternative digital signatures</p>
+                                <p><strong>Use Cases:</strong> Long-term signature verification, backup to lattice-based</p>
+                                <p><strong>Based On:</strong> Hash functions</p>
+                                <p><strong>Status:</strong> FIPS 205 - Ready for deployment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Why Lattice Cryptography Works</h3>
+                        <p>Imagine a 3D grid of points extending infinitely in all directions. Given a target point, finding the <em>closest</em> grid point is extremely hard - even for quantum computers.</p>
+                        <p>Lattice-based cryptography has been studied for over 30 years. While no proof exists that it's unbreakable, extensive cryptanalysis has found no efficient quantum attacks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education-content alt-bg" id="impl-detail">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Implementation Strategies</h2>
+
+                    <div class="content-block">
+                        <h3>Hybrid Cryptography: The Recommended Approach</h3>
+                        <p>Use <strong>both</strong> classical and post-quantum algorithms simultaneously. If either proves vulnerable, the other still protects you.</p>
+
+                        <div class="hybrid-visual">
+                            <div class="hybrid-box">
+                                <span class="hybrid-label">Hybrid TLS Handshake</span>
+                                <div class="hybrid-flow">
+                                    <div class="hybrid-item">
+                                        <span class="hybrid-icon classical">RSA/ECC</span>
+                                        <span>Classical Key</span>
+                                    </div>
+                                    <span class="hybrid-plus">+</span>
+                                    <div class="hybrid-item">
+                                        <span class="hybrid-icon pqc">ML-KEM</span>
+                                        <span>PQC Key</span>
+                                    </div>
+                                    <span class="hybrid-equals">=</span>
+                                    <div class="hybrid-item">
+                                        <span class="hybrid-icon combined">Combined</span>
+                                        <span>Session Key</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>Major browsers and services are already deploying hybrid TLS. Cloudflare, Google, and others have been running hybrid protocols since 2023.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Crypto Agility: Future-Proofing Your Systems</h3>
+                        <p>Design systems so cryptographic algorithms can be changed without major overhauls:</p>
+                        <ul>
+                            <li><strong>Abstraction:</strong> Don't hardcode algorithms in application logic</li>
+                            <li><strong>Configuration:</strong> Make algorithm selection configurable</li>
+                            <li><strong>Standard Libraries:</strong> Use maintained crypto libraries (OpenSSL, BoringSSL)</li>
+                            <li><strong>Key Management:</strong> Ensure KMS/HSM can support larger PQC keys</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Migration Planning</h3>
+                        <div class="timeline-visual">
+                            <div class="timeline-phase">
+                                <span class="phase-marker">1</span>
+                                <h4>Inventory (Now - 2026)</h4>
+                                <p>Document where cryptography is used. Identify high-risk systems.</p>
+                            </div>
+                            <div class="timeline-phase">
+                                <span class="phase-marker">2</span>
+                                <h4>Pilot (2025 - 2027)</h4>
+                                <p>Test hybrid PQC in non-production. Train teams.</p>
+                            </div>
+                            <div class="timeline-phase">
+                                <span class="phase-marker">3</span>
+                                <h4>Deploy (2027 - 2030)</h4>
+                                <p>Roll out hybrid to production. Upgrade infrastructure.</p>
+                            </div>
+                            <div class="timeline-phase">
+                                <span class="phase-marker">4</span>
+                                <h4>Complete (2030 - 2035)</h4>
+                                <p>Full PQC migration. Phase out classical algorithms.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-cta">
+                        <p>Ready to start your quantum-safe journey?</p>
+                        <a href="assessment.html" class="btn btn-primary">Take the Readiness Assessment</a>
+                        <a href="services.html" class="btn btn-secondary">Explore Advisory Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section class="resources-section">
+            <div class="container">
+                <h2 class="section-title">Further Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4>NIST Standards</h4>
+                        <ul>
+                            <li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank">NIST PQC Project</a></li>
+                            <li>FIPS 203 (ML-KEM)</li>
+                            <li>FIPS 204 (ML-DSA)</li>
+                            <li>NIST SP 800-227 (Migration Guidelines)</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Industry Guidance</h4>
+                        <ul>
+                            <li><a href="https://www.etsi.org/" target="_blank">ETSI PQC Standards</a></li>
+                            <li>Global Risk Institute Reports</li>
+                            <li>CISA Quantum Readiness</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Technical Deep Dives</h4>
+                        <ul>
+                            <li>Cloudflare Lattice Primer</li>
+                            <li>NIST CSRC Publications</li>
+                            <li>Open Quantum Safe Project</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Assess Your Quantum Risk?</h2>
+                <p>Get your personalized readiness score and a tailored action brief in 10 minutes.</p>
+                <div class="cta-buttons">
+                    <a href="assessment.html" class="btn btn-primary btn-lg">Start the Assessment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">
+                        <span class="logo-icon">Q</span>
+                        <span class="logo-text">Quantum-Safe</span>
+                    </a>
+                    <p>Helping organizations navigate the post-quantum transition with confidence.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="education.html">Education Hub</a></li>
+                        <li><a href="assessment.html">Readiness Assessment</a></li>
+                        <li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank">NIST Standards</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Executive Briefings</a></li>
+                        <li><a href="services.html">Roadmap Workshops</a></li>
+                        <li><a href="services.html">Migration Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/kareldekneef" target="_blank">LinkedIn</a></li>
+                        <li><a href="about.html">About Karel</a></li>
+                        <li><a href="mailto:contact@quantum-safe.io">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Karel De Kneef. All rights reserved.</p>
+                <p class="footer-tagline">Doing nothing is a decision too.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/analytics.js"></script>
+    <style>
+        /* Education page specific styles */
+        .education-content {
+            padding: var(--spacing-16) 0;
+        }
+
+        .education-content.alt-bg {
+            background-color: var(--color-gray-50);
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-8);
+            padding-bottom: var(--spacing-4);
+            border-bottom: 2px solid var(--color-gray-200);
+        }
+
+        .content-block {
+            margin-bottom: var(--spacing-10);
+        }
+
+        .content-block h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-4);
+            color: var(--color-gray-800);
+        }
+
+        .content-block p {
+            margin-bottom: var(--spacing-4);
+            line-height: 1.7;
+        }
+
+        .content-block ul, .content-block ol {
+            margin-bottom: var(--spacing-4);
+            padding-left: var(--spacing-6);
+        }
+
+        .content-block li {
+            margin-bottom: var(--spacing-2);
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background-color: var(--color-gray-100);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--spacing-6);
+            border-radius: var(--radius);
+            margin: var(--spacing-6) 0;
+        }
+
+        .highlight-box ol {
+            margin-bottom: 0;
+        }
+
+        .formula-box {
+            background-color: var(--color-gray-900);
+            color: var(--color-white);
+            padding: var(--spacing-6);
+            border-radius: var(--radius);
+            text-align: center;
+            margin: var(--spacing-6) 0;
+        }
+
+        .formula-box p {
+            margin: 0;
+            font-size: var(--font-size-lg);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-6);
+            margin: var(--spacing-6) 0;
+        }
+
+        .comparison-item {
+            background-color: var(--color-white);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .comparison-item.highlight {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        }
+
+        .comparison-item.highlight h4 {
+            color: var(--color-white);
+        }
+
+        .comparison-item h4 {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .comparison-item ul {
+            margin: 0;
+            padding-left: var(--spacing-4);
+        }
+
+        .algorithm-cards {
+            display: grid;
+            gap: var(--spacing-6);
+            margin: var(--spacing-6) 0;
+        }
+
+        .algorithm-card {
+            background-color: var(--color-white);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .algorithm-card h4 {
+            color: var(--color-primary);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .algorithm-subtitle {
+            color: var(--color-gray-500);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .algorithm-card p {
+            margin-bottom: var(--spacing-2);
+            font-size: var(--font-size-sm);
+        }
+
+        .hybrid-visual {
+            margin: var(--spacing-8) 0;
+        }
+
+        .hybrid-box {
+            background-color: var(--color-gray-900);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+        }
+
+        .hybrid-label {
+            display: block;
+            text-align: center;
+            color: var(--color-gray-400);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .hybrid-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-4);
+            flex-wrap: wrap;
+        }
+
+        .hybrid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-2);
+            color: var(--color-white);
+            font-size: var(--font-size-sm);
+        }
+
+        .hybrid-icon {
+            padding: var(--spacing-3) var(--spacing-4);
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+        }
+
+        .hybrid-icon.classical { background-color: var(--color-gray-600); }
+        .hybrid-icon.pqc { background-color: var(--color-primary); }
+        .hybrid-icon.combined { background-color: var(--color-success); }
+
+        .hybrid-plus, .hybrid-equals {
+            color: var(--color-gray-400);
+            font-size: var(--font-size-2xl);
+            font-weight: 300;
+        }
+
+        .timeline-visual {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-4);
+            margin: var(--spacing-8) 0;
+        }
+
+        .timeline-phase {
+            text-align: center;
+            padding: var(--spacing-4);
+        }
+
+        .phase-marker {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .timeline-phase h4 {
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .timeline-phase p {
+            font-size: var(--font-size-xs);
+            color: var(--color-gray-500);
+            margin: 0;
+        }
+
+        .content-cta {
+            text-align: center;
+            padding: var(--spacing-8);
+            background-color: var(--color-gray-100);
+            border-radius: var(--radius-lg);
+            margin-top: var(--spacing-8);
+        }
+
+        .content-cta p {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .content-cta .btn {
+            margin: 0 var(--spacing-2);
+        }
+
+        .resources-section {
+            padding: var(--spacing-16) 0;
+            background-color: var(--color-gray-50);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-8);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background-color: var(--color-white);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .resource-card h4 {
+            margin-bottom: var(--spacing-4);
+            color: var(--color-gray-800);
+        }
+
+        .resource-card ul {
+            padding-left: 0;
+        }
+
+        .resource-card li {
+            padding: var(--spacing-2) 0;
+            border-bottom: 1px solid var(--color-gray-100);
+        }
+
+        .resource-card li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-card a {
+            color: var(--color-primary);
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid,
+            .timeline-visual,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hybrid-flow {
+                flex-direction: column;
+            }
+
+            .content-cta .btn {
+                display: block;
+                margin: var(--spacing-2) 0;
+            }
+        }
+    </style>
+</body>
+</html>

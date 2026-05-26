@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Readiness Assessment | Quantum-Safe</title>
+    <meta name="description" content="Assess your organization's quantum-safe readiness in 10 minutes. Get a personalized score and actionable recommendations.">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Quantum-Safe">
+    <link rel="apple-touch-icon" href="/assets/icons/icon-192.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-icon">Q</span>
+                <span class="logo-text">Quantum-Safe</span>
+            </a>
+            <div class="nav-links">
+                <a href="education.html" class="nav-link">Learn</a>
+                <a href="assessment.html" class="nav-link">Assessment</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+            <a href="assessment.html" class="nav-cta">Start Assessment</a>
+        </div>
+    </nav>
+
+    <main class="assessment-page">
+        <div class="assessment-container">
+            <!-- Assessment Header -->
+            <div class="assessment-header" id="assessment-header">
+                <h1>Quantum Readiness Assessment</h1>
+                <p>Answer 12 questions to discover your organization's quantum-safe readiness score and get personalized recommendations.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progress-step">Question 1 of 12</span>
+                    <span id="progress-time">~8 minutes remaining</span>
+                </div>
+            </div>
+
+            <!-- Questions Container -->
+            <div id="questions-container">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="assessment-nav" id="assessment-nav">
+                <button class="nav-btn nav-btn-prev" id="prev-btn" disabled>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Previous
+                </button>
+                <button class="nav-btn nav-btn-next" id="next-btn">
+                    Next
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Results Container (hidden initially) -->
+            <div id="results-container" class="hidden">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/analytics.js"></script>
+    <script src="../js/pdf-generator.js"></script>
+    <script src="../js/assessment.js"></script>
+</body>
+</html>
