@@ -1241,6 +1241,19 @@ h4 { font-size: var(--font-size-lg); }
     color: var(--color-gray-500);
 }
 
+.footer-version {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-gray-500);
+    background: var(--color-gray-800);
+    padding: 1px 7px;
+    border-radius: 999px;
+    vertical-align: middle;
+    margin-left: 4px;
+    letter-spacing: 0.03em;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .hero-container {
