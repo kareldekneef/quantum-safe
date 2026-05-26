@@ -87,5 +87,116 @@
     <script src="../js/analytics.js"></script>
     <script src="../js/pdf-generator.js"></script>
     <script src="../js/assessment.js"></script>
+
+    <style>
+        /* Sector callout */
+        .sector-context-callout {
+            background: rgba(37,99,235,0.08);
+            border: 1px solid rgba(37,99,235,0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+        .sector-tag {
+            display: inline-block;
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--color-primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: var(--spacing-3);
+        }
+        .sector-context-callout p {
+            margin: 0;
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            color: var(--color-gray-700);
+        }
+
+        /* Weakest dimension */
+        .weakest-dimension-callout {
+            background: var(--color-gray-900);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            margin-bottom: var(--spacing-6);
+        }
+        .weakest-label {
+            font-size: var(--font-size-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-warning);
+            margin-bottom: var(--spacing-1);
+        }
+        .weakest-name {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--spacing-3);
+        }
+        .weakest-dimension-callout p {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-300);
+            line-height: 1.6;
+            margin: 0 0 var(--spacing-2);
+        }
+        .weakest-secondary {
+            color: var(--color-gray-400) !important;
+            font-size: var(--font-size-xs) !important;
+        }
+
+        /* Service recommendation */
+        .service-recommendation {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+            text-align: center;
+        }
+        .service-rec-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2);
+            font-size: var(--font-size-sm);
+            color: rgba(255,255,255,0.75);
+            margin-bottom: var(--spacing-3);
+        }
+        .service-recommendation h3 {
+            font-size: var(--font-size-2xl);
+            color: white;
+            margin-bottom: var(--spacing-3);
+        }
+        .service-recommendation p {
+            font-size: var(--font-size-sm);
+            color: rgba(255,255,255,0.85);
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto var(--spacing-6);
+        }
+        .service-recommendation .btn-primary {
+            background: white;
+            color: var(--color-primary);
+            border-color: white;
+        }
+        .service-recommendation .btn-primary:hover {
+            background: var(--color-gray-100);
+        }
+
+        /* Sector card on selector screen */
+        .sector-card .question-number {
+            color: var(--color-accent);
+        }
+
+        /* Dimension bars sorted with weakest first */
+        .dimension-item:first-child .dimension-fill {
+            background: var(--color-warning);
+        }
+    </style>
 </body>
 </html>

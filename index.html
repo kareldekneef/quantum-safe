@@ -89,16 +89,16 @@
         <div class="container">
             <div class="problem-grid">
                 <div class="problem-stat">
-                    <span class="stat-number">5-10</span>
-                    <span class="stat-label">Years until quantum computers break current encryption</span>
+                    <span class="stat-number">19–34%</span>
+                    <span class="stat-label">Expert probability of a cryptographically relevant quantum computer within 10 years — and rising (GRI, Dec 2024)</span>
                 </div>
                 <div class="problem-stat">
                     <span class="stat-number">Now</span>
-                    <span class="stat-label">Adversaries are harvesting your encrypted data today</span>
+                    <span class="stat-label">Adversaries are harvesting your encrypted data today, waiting for quantum to decrypt it</span>
                 </div>
                 <div class="problem-stat">
-                    <span class="stat-number">2024</span>
-                    <span class="stat-label">NIST released quantum-safe encryption standards</span>
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">NIST-approved post-quantum algorithms — three final standards since August 2024, two more selected</span>
                 </div>
             </div>
         </div>
@@ -201,6 +201,34 @@
                 <a href="pages/assessment.html" class="btn btn-primary">
                     Estimate Your Risk in 3 Minutes
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PQC Already Deployed Banner -->
+    <section class="adoption-banner-section">
+        <div class="container">
+            <h2 class="section-title">This Is Already Happening — Without You</h2>
+            <p class="section-subtitle">While most enterprises are still planning, the internet has already moved. Your suppliers are making PQC decisions on your behalf.</p>
+            <div class="adoption-ticker">
+                <div class="ticker-item">
+                    <span class="ticker-number">38%</span>
+                    <span class="ticker-label">of all HTTPS traffic on Cloudflare already uses hybrid PQC <em>(March 2025)</em></span>
+                </div>
+                <div class="ticker-divider"></div>
+                <div class="ticker-item">
+                    <span class="ticker-number">3</span>
+                    <span class="ticker-label">major browsers — Chrome, Firefox, Safari — ship post-quantum key exchange on by default</span>
+                </div>
+                <div class="ticker-divider"></div>
+                <div class="ticker-item">
+                    <span class="ticker-number">2B+</span>
+                    <span class="ticker-label">Apple iMessage users protected by PQ3 post-quantum protocol since February 2024</span>
+                </div>
+            </div>
+            <p class="adoption-callout">If your procurement requirements, vendor contracts, and internal systems don't reference NIST PQC standards yet, you're already behind the infrastructure your vendors are deploying.</p>
+            <div style="text-align:center; margin-top: var(--spacing-6);">
+                <a href="pages/education.html#adoption-detail" class="btn btn-secondary">See the Full Adoption Timeline →</a>
             </div>
         </div>
     </section>
@@ -340,7 +368,7 @@
                             <li>Actual quantum bits in hardware</li>
                             <li>~1% error rate (very high)</li>
                             <li>Lose quantum properties quickly (decoherence)</li>
-                            <li>Current systems: 50-1,000 physical qubits</li>
+                            <li>Google Willow (Dec 2024): 105 qubits, achieved exponential error suppression — a qualitative milestone toward fault-tolerant QC</li>
                         </ul>
                     </div>
                     <div class="info-card highlight">
@@ -349,14 +377,14 @@
                             <li>Virtual qubits from many physical qubits</li>
                             <li>Error-corrected and reliable</li>
                             <li>Required for cryptographically-relevant computation</li>
-                            <li>Current bottleneck: ~500 physical = 1 logical</li>
+                            <li>IBM roadmap: 200 logical qubits targeted for 2029 (Starling)</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="qubits-insight">
                     <blockquote>
-                        "When you read '1 million physical qubits achieved,' remember: that's roughly 2,000 logical qubits. Breaking RSA-2048 requires approximately 4,000 logical qubits running Shor's algorithm."
+                        "When you read '1 million physical qubits achieved,' remember: that's a fraction of the logical qubits needed. But the trajectory is accelerating — Google Willow and Microsoft Majorana 1 represent qualitative jumps, not just qubit counts."
                     </blockquote>
                 </div>
             </div>
@@ -460,19 +488,28 @@
                 <div class="timeline-regulatory">
                     <h4>Regulatory Milestones</h4>
                     <div class="regulatory-items">
+                        <div class="reg-item reg-item-now">
+                            <span class="reg-year">Now</span>
+                            <span class="reg-text">EU DORA in force — financial sector must address quantum risk in ICT resilience plans</span>
+                        </div>
                         <div class="reg-item">
-                            <span class="reg-year">2028</span>
-                            <span class="reg-text">UK: Discovery phase must begin</span>
+                            <span class="reg-year">2026</span>
+                            <span class="reg-text">EU: National PQC strategies and crypto inventories must be initiated</span>
+                        </div>
+                        <div class="reg-item">
+                            <span class="reg-year">2027</span>
+                            <span class="reg-text">US CNSA 2.0: Software/firmware signing exclusively post-quantum for National Security Systems</span>
                         </div>
                         <div class="reg-item">
                             <span class="reg-year">2030</span>
-                            <span class="reg-text">US: RSA-2048/ECC-256 deprecated</span>
+                            <span class="reg-text">EU: Critical financial systems transitioned to PQC. US: Network equipment exclusively CNSA 2.0</span>
                         </div>
                         <div class="reg-item">
                             <span class="reg-year">2035</span>
-                            <span class="reg-text">Complete phase-out of vulnerable algorithms</span>
+                            <span class="reg-text">US/EU/UK: Full transition deadline across all covered systems</span>
                         </div>
                     </div>
+                    <a href="pages/education.html#regulatory-detail" class="reg-learn-more">Full compliance matrix →</a>
                 </div>
             </div>
         </div>
@@ -543,5 +580,78 @@
     <script src="js/main.js"></script>
     <script src="js/games.js"></script>
     <script src="js/analytics.js"></script>
+
+    <style>
+        /* Adoption banner */
+        .adoption-banner-section {
+            padding: var(--spacing-16) 0;
+            background: var(--color-gray-900);
+            color: white;
+            text-align: center;
+        }
+        .adoption-banner-section .section-title { color: white; }
+        .adoption-banner-section .section-subtitle { color: var(--color-gray-400); margin-bottom: var(--spacing-10); }
+        .adoption-ticker {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0;
+            margin: 0 auto var(--spacing-8);
+            max-width: 900px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .ticker-item {
+            flex: 1;
+            padding: var(--spacing-8) var(--spacing-6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+        .ticker-divider {
+            width: 1px;
+            background: rgba(255,255,255,0.1);
+            flex-shrink: 0;
+        }
+        .ticker-number {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+        .ticker-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-300);
+            line-height: 1.5;
+            text-align: center;
+        }
+        .ticker-label em { color: var(--color-gray-500); font-style: normal; }
+        .adoption-callout {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--color-gray-400);
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+        }
+
+        /* Regulatory enhancements */
+        .reg-item-now .reg-year { color: var(--color-danger); font-weight: 700; }
+        .reg-learn-more {
+            display: inline-block;
+            margin-top: var(--spacing-4);
+            font-size: var(--font-size-sm);
+            color: var(--color-primary-light);
+            text-decoration: none;
+        }
+        .reg-learn-more:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .adoption-ticker { flex-direction: column; }
+            .ticker-divider { width: 100%; height: 1px; }
+        }
+    </style>
 </body>
 </html>

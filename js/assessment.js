@@ -108,8 +108,8 @@ const questions = [
         helpText: 'HSMs are critical for key management and may need upgrades for PQC support.',
         type: 'choice',
         options: [
-            { value: 0, label: 'Unknown', description: 'We don\'t know our HSM capabilities' },
-            { value: 25, label: 'Not capable', description: 'Our HSMs don\'t support PQC algorithms' },
+            { value: 15, label: 'Unknown', description: 'We don\'t know our HSM capabilities — assessment needed' },
+            { value: 10, label: 'Not capable', description: 'Our HSMs don\'t support PQC algorithms' },
             { value: 50, label: 'Upgrade planned', description: 'We have a plan to upgrade to PQC-capable HSMs' },
             { value: 75, label: 'Partially capable', description: 'Some HSMs support PQC, others need upgrading' },
             { value: 100, label: 'Fully capable', description: 'All HSMs support NIST-approved PQC algorithms' }
@@ -123,8 +123,8 @@ const questions = [
         helpText: 'PKI changes are often the longest lead-time item in PQC migration.',
         type: 'choice',
         options: [
-            { value: 0, label: 'Unknown', description: 'We haven\'t assessed our PKI\'s capabilities' },
-            { value: 25, label: 'Not ready', description: 'Our PKI cannot support PQC certificates' },
+            { value: 15, label: 'Unknown', description: 'We haven\'t assessed our PKI\'s capabilities — but can find out' },
+            { value: 10, label: 'Not ready', description: 'Our PKI cannot support PQC certificates' },
             { value: 50, label: 'Assessment complete', description: 'We know what needs to change' },
             { value: 75, label: 'Upgrade in progress', description: 'We\'re actively upgrading our PKI' },
             { value: 100, label: 'PQC ready', description: 'Our PKI can issue hybrid or PQC certificates' }
@@ -242,15 +242,85 @@ const nextStepsTemplates = {
     ]
 };
 
-// State
-let currentQuestion = 0;
+// Sector context (non-scored, shapes recommendations)
+const sectorProfiles = {
+    financial: {
+        label: 'Financial Services',
+        urgencyNote: 'EU DORA (in force Jan 2025) requires you to address quantum risk now. With a 2030 EU NIS target for critical financial systems, your migration window is tighter than average.',
+        recommendedService: 'Roadmap Workshop'
+    },
+    healthcare: {
+        label: 'Healthcare / Pharma',
+        urgencyNote: 'Patient data and R&D formulas often carry 20+ year sensitivity periods — putting you in the highest HNDL risk category. Harvest Now, Decrypt Later is an immediate concern.',
+        recommendedService: 'Executive Briefing'
+    },
+    government: {
+        label: 'Government / Defence',
+        urgencyNote: 'CNSA 2.0 mandates apply from 2027 for NSS systems. If your organisation handles classified or sensitive government data, the regulatory clock is already running.',
+        recommendedService: 'Roadmap Workshop'
+    },
+    tech: {
+        label: 'Technology / Cloud',
+        urgencyNote: 'Your vendors — Cloudflare, browser makers, cloud providers — have already deployed hybrid PQC. Customer and partner expectations around crypto standards are evolving fast.',
+        recommendedService: 'Migration Review'
+    },
+    other: {
+        label: 'Other / General Enterprise',
+        urgencyNote: 'Most enterprise migration timelines are 4–7 years. Combined with a 5–15 year Q-Day window, starting your cryptographic inventory now is the minimum prudent action.',
+        recommendedService: 'Executive Briefing'
+    }
+};
+
+const serviceLinks = {
+    'Executive Briefing': { url: 'services.html', desc: 'A 2-hour board or C-suite session covering your threat landscape, initial risk profile, and a draft 3-year roadmap.' },
+    'Roadmap Workshop': { url: 'services.html', desc: 'A 3-month engagement delivering a full cryptographic inventory, data classification, HSM/PKI assessment, and board-ready migration plan.' },
+    'Migration Review': { url: 'services.html', desc: 'An independent expert review of your existing PQC plan with gap analysis, vendor assessment, and executive summary.' }
+};
+
+// State — -1 = sector selector screen, 0..11 = questions
+let currentQuestion = -1;
 let answers = {};
+let selectedSector = null;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    renderQuestion(currentQuestion);
+    renderSectorSelector();
     setupNavigation();
 });
+
+function renderSectorSelector() {
+    const container = document.getElementById('questions-container');
+    container.innerHTML = `
+        <div class="question-card sector-card">
+            <span class="question-number">Before we start</span>
+            <h2 class="question-text">What best describes your organisation?</h2>
+            <p class="question-help">This helps us tailor your recommendations to your specific regulatory and risk context. It does not affect your score.</p>
+            <div class="answer-options">
+                ${Object.entries(sectorProfiles).map(([key, p]) => `
+                    <div class="answer-option ${selectedSector === key ? 'selected' : ''}"
+                         data-value="${key}"
+                         onclick="selectSector('${key}', this)">
+                        <div class="answer-radio"></div>
+                        <div class="answer-content">
+                            <div class="answer-label">${p.label}</div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    document.getElementById('progress-step').textContent = 'Select your sector to begin';
+    document.getElementById('progress-time').textContent = '~8 minutes';
+    document.getElementById('progress-fill').style.width = '0%';
+    document.getElementById('prev-btn').disabled = true;
+    document.getElementById('next-btn').innerHTML = `Start Assessment <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+}
+
+function selectSector(key, element) {
+    selectedSector = key;
+    document.querySelectorAll('.answer-option').forEach(o => o.classList.remove('selected'));
+    element.classList.add('selected');
+}
 
 function renderQuestion(index) {
     const container = document.getElementById('questions-container');
@@ -340,11 +410,19 @@ function setupNavigation() {
         if (currentQuestion > 0) {
             currentQuestion--;
             renderQuestion(currentQuestion);
+        } else {
+            // Go back to sector selector
+            currentQuestion = -1;
+            renderSectorSelector();
         }
     });
 
     document.getElementById('next-btn').addEventListener('click', () => {
-        if (currentQuestion < questions.length - 1) {
+        if (currentQuestion === -1) {
+            // Move from sector screen to first question
+            currentQuestion = 0;
+            renderQuestion(currentQuestion);
+        } else if (currentQuestion < questions.length - 1) {
             currentQuestion++;
             renderQuestion(currentQuestion);
         } else {
@@ -432,10 +510,13 @@ function showResults() {
                 <p class="score-description">${results.maturity.description}</p>
             </div>
 
+            ${buildSectorCallout()}
+
             <div class="dimension-scores">
                 <h2>Scores by Dimension</h2>
+                ${buildWeakestDimensionCallout(results.dimensions)}
                 <div class="dimension-grid">
-                    ${Object.keys(results.dimensions).map(key => {
+                    ${Object.keys(results.dimensions).sort((a,b) => results.dimensions[a].score - results.dimensions[b].score).map(key => {
                         const dim = results.dimensions[key];
                         return `
                             <div class="dimension-item">
@@ -467,6 +548,8 @@ function showResults() {
                     `).join('')}
                 </div>
             </div>
+
+            ${buildServiceRecommendation(results.maturity.label)}
 
             <div class="lead-capture">
                 <h2>Get Your Quantum-Safe Action Brief</h2>
@@ -542,6 +625,58 @@ function getDimensionFeedback(dimension, score) {
 
     const level = score < 40 ? 'low' : score < 70 ? 'medium' : 'high';
     return feedback[dimension]?.[level] || '';
+}
+
+function buildSectorCallout() {
+    if (!selectedSector) return '';
+    const profile = sectorProfiles[selectedSector];
+    return `
+        <div class="sector-context-callout">
+            <div class="sector-tag">${profile.label}</div>
+            <p>${profile.urgencyNote}</p>
+        </div>
+    `;
+}
+
+function buildWeakestDimensionCallout(dimensions) {
+    const sorted = Object.entries(dimensions).sort((a, b) => a[1].score - b[1].score);
+    if (!sorted.length) return '';
+    const [key, dim] = sorted[0];
+    const [, dim2] = sorted[1] || [null, null];
+    return `
+        <div class="weakest-dimension-callout">
+            <div class="weakest-label">Your biggest gap</div>
+            <div class="weakest-name">${dim.name} — ${dim.score}/100</div>
+            <p>${getDimensionFeedback(key, dim.score)}</p>
+            ${dim2 ? `<p class="weakest-secondary">Second priority: <strong>${dim2.name}</strong> (${dim2.score}/100)</p>` : ''}
+        </div>
+    `;
+}
+
+function buildServiceRecommendation(maturityLabel) {
+    const maturityToService = {
+        'Unaware': 'Executive Briefing',
+        'Exploring': 'Executive Briefing',
+        'Planning': 'Roadmap Workshop',
+        'Executing': 'Migration Review',
+        'Leading': 'Migration Review'
+    };
+    const sectorService = selectedSector ? sectorProfiles[selectedSector].recommendedService : null;
+    const serviceName = sectorService || maturityToService[maturityLabel] || 'Executive Briefing';
+    const service = serviceLinks[serviceName];
+    return `
+        <div class="service-recommendation">
+            <div class="service-rec-header">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                </svg>
+                <span>Recommended service for your profile</span>
+            </div>
+            <h3>${serviceName}</h3>
+            <p>${service.desc}</p>
+            <a href="${service.url}" class="btn btn-primary">Learn About This Service</a>
+        </div>
+    `;
 }
 
 function handleLeadSubmit(event) {

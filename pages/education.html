@@ -100,11 +100,11 @@
                             <h3>What Is Post-Quantum Cryptography?</h3>
                         </div>
                         <div class="module-body">
-                            <p>Learn about the NIST-approved algorithms that will protect your data in the quantum era.</p>
+                            <p>Learn about the five NIST-approved algorithms and why diversity across them matters.</p>
                             <ul class="module-topics">
-                                <li>ML-KEM for encryption</li>
-                                <li>ML-DSA for digital signatures</li>
-                                <li>Why lattice-based cryptography works</li>
+                                <li>All five approved algorithms explained</li>
+                                <li>Why algorithm diversity is a strategic hedge</li>
+                                <li>Choosing the right algorithm for your use case</li>
                             </ul>
                             <a href="#pqc-detail" class="module-cta">
                                 Learn More
@@ -129,6 +129,50 @@
                                 <li>Migration planning essentials</li>
                             </ul>
                             <a href="#impl-detail" class="module-cta">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Module 5: PQC in the Wild -->
+                    <div class="module-card" id="module-adoption">
+                        <div class="module-header">
+                            <span class="module-number">Module 5</span>
+                            <h3>PQC Is Already Deployed — By Your Vendors</h3>
+                        </div>
+                        <div class="module-body">
+                            <p>PQC adoption is not a future event. It is happening at scale now, and your infrastructure decisions need to reflect that.</p>
+                            <ul class="module-topics">
+                                <li>38% of HTTPS traffic already uses hybrid PQC</li>
+                                <li>Chrome, Firefox, Safari: PQC on by default</li>
+                                <li>What Apple, Signal, Google have already shipped</li>
+                            </ul>
+                            <a href="#adoption-detail" class="module-cta">
+                                Learn More
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Module 6: Regulatory Requirements -->
+                    <div class="module-card" id="module-regulatory">
+                        <div class="module-header">
+                            <span class="module-number">Module 6</span>
+                            <h3>Regulatory Requirements & Deadlines</h3>
+                        </div>
+                        <div class="module-body">
+                            <p>From EU DORA to US CNSA 2.0, compliance timelines are binding. Know where your organization stands.</p>
+                            <ul class="module-topics">
+                                <li>EU DORA: in force since January 2025</li>
+                                <li>CNSA 2.0: NSS deadlines 2027–2035</li>
+                                <li>Full compliance matrix by jurisdiction</li>
+                            </ul>
+                            <a href="#regulatory-detail" class="module-cta">
                                 Learn More
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -171,12 +215,53 @@
                     </div>
 
                     <div class="content-block">
-                        <h3>The Timeline</h3>
-                        <p>Estimates for "Q-Day" (when quantum computers can break RSA-2048) range from 2030-2035. But consider Mosca's Theorem:</p>
-                        <div class="formula-box">
-                            <p>If <strong>(Data Shelf Life) + (Migration Time) > (Time Until Q-Day)</strong>, your data is at risk.</p>
+                        <h3>The Timeline: What the Experts Say</h3>
+                        <p>The Global Risk Institute's 2024 Quantum Threat Timeline Report (47 expert survey, December 2024) puts it in concrete terms:</p>
+                        <div class="probability-grid">
+                            <div class="probability-item">
+                                <span class="prob-number">5–14%</span>
+                                <span class="prob-label">Probability of a cryptographically relevant quantum computer within 5 years</span>
+                            </div>
+                            <div class="probability-item highlight">
+                                <span class="prob-number">19–34%</span>
+                                <span class="prob-label">Probability within 10 years — and rising year-over-year</span>
+                            </div>
+                            <div class="probability-item">
+                                <span class="prob-number">~79%</span>
+                                <span class="prob-label">Probability by 2044 — effectively inevitable on a 20-year horizon</span>
+                            </div>
                         </div>
-                        <p>With 3-5 year migration timelines and 10-20 year data sensitivity periods, many organizations are already in the risk window.</p>
+                        <p>NSA, CISA, NCSC, BSI, and ENISA all share the same working assumption: a CRQC is not imminent but is plausible within the decade. Given that enterprise migrations take 5–10 years, the rational response is to start now.</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Mosca's Theorem: Calculate Your Risk Window</h3>
+                        <p>If <strong>(Data Shelf Life) + (Migration Time) &gt; (Time Until Q-Day)</strong>, your data is at risk. Use the calculator below to find your personal risk window.</p>
+
+                        <div class="mosca-calculator">
+                            <div class="mosca-sliders">
+                                <div class="mosca-slider-group">
+                                    <label>How long will your most sensitive data remain confidential?</label>
+                                    <div class="slider-row">
+                                        <input type="range" id="mosca-shelf" min="1" max="30" value="10" oninput="updateMosca()">
+                                        <span class="slider-val" id="mosca-shelf-val">10 years</span>
+                                    </div>
+                                    <p class="slider-hint">Patient records, pharma R&D, M&amp;A data: 15–25 years. Financial transaction logs: 7–10 years.</p>
+                                </div>
+                                <div class="mosca-slider-group">
+                                    <label>How long will your full migration realistically take?</label>
+                                    <div class="slider-row">
+                                        <input type="range" id="mosca-migration" min="1" max="10" value="4" oninput="updateMosca()">
+                                        <span class="slider-val" id="mosca-migration-val">4 years</span>
+                                    </div>
+                                    <p class="slider-hint">Most large enterprises: 4–7 years. Well-prepared organisations with crypto agility: 2–3 years.</p>
+                                </div>
+                            </div>
+                            <div class="mosca-result" id="mosca-result">
+                                <div class="mosca-equation" id="mosca-equation"></div>
+                                <div class="mosca-verdict" id="mosca-verdict"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="content-cta">
@@ -247,42 +332,69 @@
                     </div>
 
                     <div class="content-block">
-                        <h3>NIST-Approved Algorithms (August 2024)</h3>
+                        <h3>The Five NIST-Approved Algorithms</h3>
+                        <p>After an 8-year process, NIST has standardised or selected five post-quantum algorithms across two mathematical families — a deliberate hedge against future cryptanalytic breakthroughs.</p>
 
                         <div class="algorithm-cards">
-                            <div class="algorithm-card">
+                            <div class="algorithm-card status-final">
+                                <div class="alg-status-badge">FIPS 203 — Final</div>
                                 <h4>ML-KEM</h4>
-                                <p class="algorithm-subtitle">Module-Lattice Key Encapsulation Mechanism</p>
-                                <p><strong>Purpose:</strong> General data encryption</p>
+                                <p class="algorithm-subtitle">Module-Lattice Key Encapsulation Mechanism (formerly CRYSTALS-Kyber)</p>
+                                <p><strong>Purpose:</strong> Key exchange and data encryption</p>
                                 <p><strong>Use Cases:</strong> TLS connections, encrypted storage, secure communications</p>
-                                <p><strong>Based On:</strong> Lattice mathematics</p>
-                                <p><strong>Status:</strong> FIPS 203 - Ready for deployment</p>
+                                <p><strong>Based On:</strong> Lattice mathematics (Module-LWE)</p>
+                                <p><strong>Why choose it:</strong> Fastest performance, smallest key sizes — primary choice for most deployments</p>
                             </div>
 
-                            <div class="algorithm-card">
+                            <div class="algorithm-card status-final">
+                                <div class="alg-status-badge">FIPS 204 — Final</div>
                                 <h4>ML-DSA</h4>
-                                <p class="algorithm-subtitle">Module-Lattice Digital Signature Algorithm</p>
+                                <p class="algorithm-subtitle">Module-Lattice Digital Signature Algorithm (formerly CRYSTALS-Dilithium)</p>
                                 <p><strong>Purpose:</strong> Digital signatures</p>
                                 <p><strong>Use Cases:</strong> Code signing, document authentication, certificate chains</p>
                                 <p><strong>Based On:</strong> Lattice mathematics</p>
-                                <p><strong>Status:</strong> FIPS 204 - Ready for deployment</p>
+                                <p><strong>Why choose it:</strong> Primary signature algorithm — best balance of speed and key size</p>
                             </div>
 
-                            <div class="algorithm-card">
+                            <div class="algorithm-card status-final">
+                                <div class="alg-status-badge">FIPS 205 — Final</div>
                                 <h4>SLH-DSA</h4>
-                                <p class="algorithm-subtitle">Stateless Hash-Based Digital Signature</p>
-                                <p><strong>Purpose:</strong> Alternative digital signatures</p>
-                                <p><strong>Use Cases:</strong> Long-term signature verification, backup to lattice-based</p>
-                                <p><strong>Based On:</strong> Hash functions</p>
-                                <p><strong>Status:</strong> FIPS 205 - Ready for deployment</p>
+                                <p class="algorithm-subtitle">Stateless Hash-Based Digital Signature (formerly SPHINCS+)</p>
+                                <p><strong>Purpose:</strong> Conservative digital signatures</p>
+                                <p><strong>Use Cases:</strong> Long-term signature verification, firmware signing, high-assurance contexts</p>
+                                <p><strong>Based On:</strong> Hash functions — entirely different mathematics from ML-DSA</p>
+                                <p><strong>Why choose it:</strong> Most conservative option; use when you want a fallback that doesn't rely on lattice assumptions</p>
+                            </div>
+
+                            <div class="algorithm-card status-pending">
+                                <div class="alg-status-badge pending">FIPS 206 — Draft 2025</div>
+                                <h4>FN-DSA</h4>
+                                <p class="algorithm-subtitle">Falcon-based Digital Signature Algorithm (formerly FALCON)</p>
+                                <p><strong>Purpose:</strong> Digital signatures with compact keys</p>
+                                <p><strong>Use Cases:</strong> Constrained environments, IoT, embedded systems requiring small signatures</p>
+                                <p><strong>Based On:</strong> NTRU lattices — different from ML-DSA's lattice approach</p>
+                                <p><strong>Why choose it:</strong> Smallest signature size of the lattice-based options; FIPS 206 draft submitted August 2025, final expected 2026–2027</p>
+                            </div>
+
+                            <div class="algorithm-card status-pending">
+                                <div class="alg-status-badge pending">Selected March 2025</div>
+                                <h4>HQC</h4>
+                                <p class="algorithm-subtitle">Hamming Quasi-Cyclic</p>
+                                <p><strong>Purpose:</strong> Key encapsulation — backup to ML-KEM</p>
+                                <p><strong>Use Cases:</strong> High-assurance environments that require algorithm diversity</p>
+                                <p><strong>Based On:</strong> Error-correcting codes — entirely different mathematics from lattice-based algorithms</p>
+                                <p><strong>Why choose it:</strong> Selected specifically as a hedge: if a breakthrough breaks lattice mathematics, HQC remains secure. Draft standard expected 2026.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="content-block">
-                        <h3>Why Lattice Cryptography Works</h3>
-                        <p>Imagine a 3D grid of points extending infinitely in all directions. Given a target point, finding the <em>closest</em> grid point is extremely hard - even for quantum computers.</p>
-                        <p>Lattice-based cryptography has been studied for over 30 years. While no proof exists that it's unbreakable, extensive cryptanalysis has found no efficient quantum attacks.</p>
+                        <h3>Why Algorithm Diversity Is a Strategic Decision</h3>
+                        <p>NIST chose five algorithms — not one — deliberately. Three rely on lattice mathematics; two use entirely different foundations (hash functions, error-correcting codes). This is a hedge: if future research finds an efficient quantum attack on lattice problems, the hash-based and code-based algorithms remain secure.</p>
+                        <div class="highlight-box">
+                            <p><strong>What this means for your organisation:</strong> Deploying only ML-KEM + ML-DSA is a reasonable starting point — but high-assurance environments (financial infrastructure, long-lived classified data, critical national infrastructure) should plan for algorithm diversity from the outset. Crypto agility makes this possible without a full rearchitecture later.</p>
+                        </div>
+                        <p>Lattice-based cryptography has been studied for over 30 years. While no formal proof of hardness exists, extensive cryptanalysis has found no efficient quantum attacks — and the same is true of RSA, which has no formal proof either.</p>
                     </div>
                 </div>
             </div>
@@ -319,7 +431,7 @@
                             </div>
                         </div>
 
-                        <p>Major browsers and services are already deploying hybrid TLS. Cloudflare, Google, and others have been running hybrid protocols since 2023.</p>
+                        <p>Hybrid PQC is already the internet standard. By March 2025, <strong>38% of all HTTPS traffic on Cloudflare</strong> ran over hybrid PQC. Chrome and Firefox ship X25519+ML-KEM on by default as of August 2025. Safari joins with iOS 26 / macOS Tahoe. Your vendors are not waiting for you.</p>
                     </div>
 
                     <div class="content-block">
@@ -338,31 +450,213 @@
                         <div class="timeline-visual">
                             <div class="timeline-phase">
                                 <span class="phase-marker">1</span>
-                                <h4>Inventory (Now - 2026)</h4>
-                                <p>Document where cryptography is used. Identify high-risk systems.</p>
+                                <h4>Inventory<br><small>Years 1–2</small></h4>
+                                <p>Document where cryptography is used. Classify data by sensitivity period. Identify high-risk systems.</p>
                             </div>
                             <div class="timeline-phase">
                                 <span class="phase-marker">2</span>
-                                <h4>Pilot (2025 - 2027)</h4>
-                                <p>Test hybrid PQC in non-production. Train teams.</p>
+                                <h4>Pilot<br><small>Years 1–3</small></h4>
+                                <p>Test hybrid PQC in non-production. Assess HSM and PKI readiness. Train teams.</p>
                             </div>
                             <div class="timeline-phase">
                                 <span class="phase-marker">3</span>
-                                <h4>Deploy (2027 - 2030)</h4>
-                                <p>Roll out hybrid to production. Upgrade infrastructure.</p>
+                                <h4>Deploy<br><small>Years 3–7</small></h4>
+                                <p>Roll out hybrid to production. Upgrade infrastructure. Align vendors.</p>
                             </div>
                             <div class="timeline-phase">
                                 <span class="phase-marker">4</span>
-                                <h4>Complete (2030 - 2035)</h4>
-                                <p>Full PQC migration. Phase out classical algorithms.</p>
+                                <h4>Complete<br><small>Years 7–10</small></h4>
+                                <p>Full PQC migration. Phase out classical algorithms. Meet regulatory deadlines.</p>
                             </div>
                         </div>
+                        <p class="timeline-note">Timeline varies by organisation size and crypto agility. Well-prepared organisations with modular cryptography can compress phases 1–3 significantly.</p>
                     </div>
 
                     <div class="content-cta">
                         <p>Ready to start your quantum-safe journey?</p>
                         <a href="assessment.html" class="btn btn-primary">Take the Readiness Assessment</a>
                         <a href="services.html" class="btn btn-secondary">Explore Advisory Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PQC in the Wild -->
+        <section class="education-content" id="adoption-detail">
+            <div class="container">
+                <div class="content-section">
+                    <h2>PQC Is Already Deployed — By Your Vendors</h2>
+                    <p class="section-intro">The most effective counter to "we have time" thinking is this: your infrastructure vendors, browsers, and consumer apps have already made their PQC decisions. If your procurement specs, contracts, and internal systems don't reflect this, you're creating compliance and interoperability gaps — today, not in 2030.</p>
+
+                    <div class="content-block">
+                        <h3>The Internet Is Already Hybrid PQC</h3>
+                        <div class="adoption-stats">
+                            <div class="adoption-stat">
+                                <span class="adoption-number">38%</span>
+                                <span class="adoption-desc">of all human HTTPS traffic on Cloudflare was running hybrid PQC by March 2025 — up from near zero in 2023</span>
+                            </div>
+                            <div class="adoption-stat">
+                                <span class="adoption-number">6M+</span>
+                                <span class="adoption-desc">domains on Cloudflare automatically upgraded to hybrid PQC TLS by default</span>
+                            </div>
+                            <div class="adoption-stat">
+                                <span class="adoption-number">3</span>
+                                <span class="adoption-desc">major browsers — Chrome, Firefox, Safari — shipping X25519+ML-KEM on by default as of 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Consumer Apps Are Ahead of Most Enterprises</h3>
+                        <div class="adoption-timeline">
+                            <div class="adoption-event">
+                                <span class="event-date">2023</span>
+                                <div class="event-content">
+                                    <strong>Signal</strong> — deployed PQXDH (Post-Quantum Extended Diffie-Hellman using ML-KEM), the first major messaging app to ship PQC at scale
+                                </div>
+                            </div>
+                            <div class="adoption-event">
+                                <span class="event-date">Feb 2024</span>
+                                <div class="event-content">
+                                    <strong>Apple iMessage PQ3</strong> — launched a protocol providing both initial PQC key agreement and ongoing PQC rekeying for billions of messages daily
+                                </div>
+                            </div>
+                            <div class="adoption-event">
+                                <span class="event-date">Aug 2024</span>
+                                <div class="event-content">
+                                    <strong>NIST FIPS 203/204/205 finalised</strong> — ML-KEM, ML-DSA, SLH-DSA become official standards after an 8-year process
+                                </div>
+                            </div>
+                            <div class="adoption-event">
+                                <span class="event-date">Mar 2025</span>
+                                <div class="event-content">
+                                    <strong>HQC selected</strong> — NIST adds a fifth algorithm (code-based) as a hedge against lattice vulnerabilities
+                                </div>
+                            </div>
+                            <div class="adoption-event">
+                                <span class="event-date">Aug 2025</span>
+                                <div class="event-content">
+                                    <strong>Chrome &amp; Firefox default-on</strong> — X25519MLKEM768 enabled by default in both browsers; hybrid PQC becomes the baseline for web traffic
+                                </div>
+                            </div>
+                            <div class="adoption-event">
+                                <span class="event-date">Oct 2025</span>
+                                <div class="event-content">
+                                    <strong>Signal Triple Ratchet</strong> — Signal ships full post-quantum forward secrecy with ongoing rekeying, protecting all future messages even if keys are compromised
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Hardware Milestones: Why the Threat Is Accelerating</h3>
+                        <p>Two 2024–2025 breakthroughs changed the expert consensus on how quickly fault-tolerant quantum computers could arrive:</p>
+                        <div class="hardware-milestones">
+                            <div class="milestone-card">
+                                <span class="milestone-date">December 2024</span>
+                                <h4>Google Willow</h4>
+                                <p>105-qubit superconducting processor achieved <strong>exponential error suppression</strong> — error rates fell as more qubits were added, the opposite of what was seen before. This crossed a key threshold toward fault-tolerant quantum computing.</p>
+                            </div>
+                            <div class="milestone-card">
+                                <span class="milestone-date">February 2025</span>
+                                <h4>Microsoft Majorana 1</h4>
+                                <p>First topological qubit processor, based on an entirely different physical approach designed to be inherently more stable. Microsoft's stated goal: scale to <strong>1 million qubits</strong> on a single chip.</p>
+                            </div>
+                            <div class="milestone-card">
+                                <span class="milestone-date">2029 target</span>
+                                <h4>IBM Quantum Starling</h4>
+                                <p>IBM's roadmap targets <strong>200 error-corrected logical qubits</strong> capable of running ~100 million operations. This would be the first system capable of meaningful fault-tolerant computation at scale.</p>
+                            </div>
+                        </div>
+                        <p>None of these systems can break RSA-2048 today. But each one reduces the engineering gap that remains. Recent 2025 research has also significantly reduced the estimated qubit requirements for breaking RSA-2048 — some models now suggest fewer than 1 million physical qubits under optimised architectures, down from earlier estimates of 20+ million.</p>
+                    </div>
+
+                    <div class="content-cta">
+                        <p>Your suppliers are making PQC decisions now. Are your procurement requirements keeping pace?</p>
+                        <a href="assessment.html" class="btn btn-primary">Check Your Readiness</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regulatory Requirements -->
+        <section class="education-content alt-bg" id="regulatory-detail">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Regulatory Requirements &amp; Deadlines</h2>
+                    <p class="section-intro">PQC migration is no longer just a security best practice — it is becoming a compliance obligation. The following deadlines are binding for their respective jurisdictions and sectors.</p>
+
+                    <div class="content-block">
+                        <h3>Global Compliance Matrix</h3>
+                        <div class="reg-table-wrapper">
+                            <table class="reg-table">
+                                <thead>
+                                    <tr>
+                                        <th>Deadline</th>
+                                        <th>Regulation / Framework</th>
+                                        <th>Who It Covers</th>
+                                        <th>Requirement</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="reg-now">
+                                        <td><strong>Now</strong></td>
+                                        <td>EU DORA<br><small>(in force Jan 2025)</small></td>
+                                        <td>EU banks, insurers, investment firms, critical ICT providers</td>
+                                        <td>Address quantum computing as part of digital operational resilience; crypto-agility required</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2026</strong></td>
+                                        <td>EU NIS Cooperation Group Roadmap<br><small>(June 2025)</small></td>
+                                        <td>EU Member States critical infrastructure operators</td>
+                                        <td>National PQC strategies and cryptographic inventories must be initiated</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2027</strong></td>
+                                        <td>US CNSA 2.0<br><small>(NSA, updated May 2025)</small></td>
+                                        <td>US National Security Systems, defence supply chain</td>
+                                        <td>Software and firmware signing must use CNSA 2.0 algorithms exclusively; all new NSS acquisitions must support CNSA 2.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2030</strong></td>
+                                        <td>EU NIS CG + CNSA 2.0</td>
+                                        <td>EU critical financial systems; US NSS networking equipment (VPNs, routers)</td>
+                                        <td>High-risk use cases including critical financial systems transitioned to PQC (EU); networking equipment exclusive CNSA 2.0 (US)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2033</strong></td>
+                                        <td>US CNSA 2.0</td>
+                                        <td>US National Security Systems</td>
+                                        <td>Operating systems: CNSA 2.0 exclusive use</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2035</strong></td>
+                                        <td>CNSA 2.0 + EU NIS CG + UK NCSC</td>
+                                        <td>All covered systems across US, EU, UK</td>
+                                        <td>Full transition to quantum-resistant cryptography across all systems</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>What This Means for Financial Services</h3>
+                        <p>Financial institutions face the most immediate regulatory pressure:</p>
+                        <ul>
+                            <li><strong>EU DORA (in force now):</strong> The Digital Operational Resilience Act explicitly requires financial entities to address quantum risk as part of ICT risk management. Supervisory authorities are beginning to ask about PQC roadmaps in their 2025 review cycles.</li>
+                            <li><strong>EU NIS CG 2030 target:</strong> High-risk use cases — including critical financial systems — must be transitioned by 2030. That leaves roughly 5 years, which is within the migration timeline for a complex financial institution.</li>
+                            <li><strong>Basel / BIS:</strong> The Committee on Payments and Market Infrastructures has flagged quantum risk in operational resilience guidance. While no standalone PQC regulation exists at the BIS level yet, expect this to change as 2030 approaches.</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <p><strong>The 2025 urgency point:</strong> A financial institution with a 7-year data sensitivity period that begins its migration in 2026 and takes 4 years will finish in 2030. Under Mosca's Theorem, that is borderline. Any delay compounds the risk — and may also put the institution in breach of DORA's resilience requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-cta">
+                        <p>Not sure which regulations apply to your organisation?</p>
+                        <a href="assessment.html" class="btn btn-primary">Take the Assessment</a>
+                        <a href="services.html" class="btn btn-secondary">Talk to Karel</a>
                     </div>
                 </div>
             </div>
@@ -377,25 +671,28 @@
                         <h4>NIST Standards</h4>
                         <ul>
                             <li><a href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank">NIST PQC Project</a></li>
-                            <li>FIPS 203 (ML-KEM)</li>
-                            <li>FIPS 204 (ML-DSA)</li>
-                            <li>NIST SP 800-227 (Migration Guidelines)</li>
+                            <li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf" target="_blank">FIPS 203 — ML-KEM</a></li>
+                            <li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf" target="_blank">FIPS 204 — ML-DSA</a></li>
+                            <li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.205.pdf" target="_blank">FIPS 205 — SLH-DSA</a></li>
+                            <li><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1800-38.pdf" target="_blank">NIST SP 1800-38 — Migration Guide</a></li>
                         </ul>
                     </div>
                     <div class="resource-card">
-                        <h4>Industry Guidance</h4>
+                        <h4>Government Guidance</h4>
                         <ul>
-                            <li><a href="https://www.etsi.org/" target="_blank">ETSI PQC Standards</a></li>
-                            <li>Global Risk Institute Reports</li>
-                            <li>CISA Quantum Readiness</li>
+                            <li><a href="https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSA_CNSA_2.0_ALGORITHMS.PDF" target="_blank">NSA CNSA 2.0 Algorithms</a></li>
+                            <li><a href="https://www.cisa.gov/quantum" target="_blank">CISA Quantum Readiness</a></li>
+                            <li><a href="https://www.enisa.europa.eu/publications/post-quantum-cryptography-current-state-and-quantum-mitigation" target="_blank">ENISA PQC Guidance</a></li>
+                            <li><a href="https://www.ncsc.gov.uk/collection/post-quantum-cryptography" target="_blank">UK NCSC PQC Collection</a></li>
                         </ul>
                     </div>
                     <div class="resource-card">
-                        <h4>Technical Deep Dives</h4>
+                        <h4>Threat Intelligence</h4>
                         <ul>
-                            <li>Cloudflare Lattice Primer</li>
-                            <li>NIST CSRC Publications</li>
-                            <li>Open Quantum Safe Project</li>
+                            <li><a href="https://globalriskinstitute.org/publication/2024-quantum-threat-timeline-report/" target="_blank">GRI 2024 Quantum Threat Timeline</a></li>
+                            <li><a href="https://blog.cloudflare.com/pq-2025/" target="_blank">Cloudflare: State of PQC 2025</a></li>
+                            <li><a href="https://security.apple.com/blog/imessage-pq3/" target="_blank">Apple iMessage PQ3</a></li>
+                            <li><a href="https://openquantumsafe.org/" target="_blank">Open Quantum Safe Project</a></li>
                         </ul>
                     </div>
                 </div>
@@ -763,6 +1060,184 @@
                 margin: var(--spacing-2) 0;
             }
         }
+
+        /* --- New styles --- */
+
+        .section-intro {
+            font-size: var(--font-size-lg);
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-10);
+            line-height: 1.7;
+        }
+
+        .timeline-note {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-500);
+            font-style: italic;
+            margin-top: var(--spacing-4);
+        }
+
+        .timeline-phase h4 small {
+            display: block;
+            font-weight: 400;
+            color: var(--color-primary-light);
+            font-size: var(--font-size-xs);
+        }
+
+        /* Algorithm card status badges */
+        .algorithm-card { position: relative; }
+        .alg-status-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-bottom: var(--spacing-2);
+            background: var(--color-primary);
+            color: white;
+        }
+        .alg-status-badge.pending { background: var(--color-warning); color: var(--color-gray-900); }
+        .algorithm-card.status-pending { border-color: var(--color-warning); border-width: 2px; }
+
+        /* Probability grid */
+        .probability-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-4);
+            margin: var(--spacing-6) 0;
+        }
+        .probability-item {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            text-align: center;
+        }
+        .probability-item.highlight {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+        .probability-item.highlight .prob-label { color: rgba(255,255,255,0.85); }
+        .prob-number {
+            display: block;
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-2);
+            color: var(--color-primary);
+        }
+        .probability-item.highlight .prob-number { color: white; }
+        .prob-label { font-size: var(--font-size-sm); color: var(--color-gray-600); line-height: 1.5; }
+
+        /* Mosca calculator */
+        .mosca-calculator {
+            background: var(--color-gray-900);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin: var(--spacing-6) 0;
+            color: white;
+        }
+        .mosca-sliders { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-8); margin-bottom: var(--spacing-8); }
+        .mosca-slider-group label { display: block; font-weight: 600; margin-bottom: var(--spacing-3); font-size: var(--font-size-sm); }
+        .slider-row { display: flex; align-items: center; gap: var(--spacing-4); margin-bottom: var(--spacing-2); }
+        .slider-row input[type=range] { flex: 1; accent-color: var(--color-primary); }
+        .slider-val { font-size: var(--font-size-lg); font-weight: 700; color: var(--color-accent); min-width: 70px; }
+        .slider-hint { font-size: var(--font-size-xs); color: var(--color-gray-400); line-height: 1.5; margin: 0; }
+        .mosca-result { border-top: 1px solid var(--color-gray-700); padding-top: var(--spacing-6); }
+        .mosca-equation { font-size: var(--font-size-base); color: var(--color-gray-300); margin-bottom: var(--spacing-4); font-family: monospace; }
+        .mosca-verdict { font-size: var(--font-size-xl); font-weight: 700; padding: var(--spacing-4) var(--spacing-6); border-radius: var(--radius); }
+        .mosca-verdict.at-risk { background: rgba(239,68,68,0.15); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+        .mosca-verdict.borderline { background: rgba(245,158,11,0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
+        .mosca-verdict.safe { background: rgba(16,185,129,0.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+
+        /* Adoption stats */
+        .adoption-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-6);
+            margin: var(--spacing-6) 0;
+        }
+        .adoption-stat {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            text-align: center;
+        }
+        .adoption-number {
+            display: block;
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-2);
+        }
+        .adoption-desc { font-size: var(--font-size-sm); color: var(--color-gray-600); line-height: 1.5; }
+
+        /* Adoption timeline */
+        .adoption-timeline { position: relative; padding-left: var(--spacing-8); margin: var(--spacing-6) 0; }
+        .adoption-timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--color-primary); opacity: 0.3; }
+        .adoption-event { position: relative; margin-bottom: var(--spacing-6); display: flex; gap: var(--spacing-6); align-items: flex-start; }
+        .adoption-event::before { content: ''; position: absolute; left: calc(-1 * var(--spacing-8) - 4px); top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-primary); }
+        .event-date { font-size: var(--font-size-xs); font-weight: 700; color: var(--color-primary); min-width: 80px; padding-top: 2px; }
+        .event-content { font-size: var(--font-size-sm); line-height: 1.6; color: var(--color-gray-700); }
+
+        /* Hardware milestones */
+        .hardware-milestones { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-6); margin: var(--spacing-6) 0; }
+        .milestone-card { background: var(--color-gray-900); color: white; border-radius: var(--radius-lg); padding: var(--spacing-6); }
+        .milestone-date { display: block; font-size: var(--font-size-xs); font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--spacing-2); }
+        .milestone-card h4 { color: white; margin-bottom: var(--spacing-3); }
+        .milestone-card p { font-size: var(--font-size-sm); color: var(--color-gray-300); line-height: 1.6; margin: 0; }
+
+        /* Regulatory table */
+        .reg-table-wrapper { overflow-x: auto; margin: var(--spacing-6) 0; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+        .reg-table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); background: white; }
+        .reg-table thead { background: var(--color-gray-900); color: white; }
+        .reg-table th { padding: var(--spacing-4); text-align: left; font-weight: 600; white-space: nowrap; }
+        .reg-table td { padding: var(--spacing-4); border-bottom: 1px solid var(--color-gray-100); vertical-align: top; line-height: 1.5; }
+        .reg-table td small { color: var(--color-gray-500); display: block; }
+        .reg-table tr:last-child td { border-bottom: none; }
+        .reg-table tr:hover td { background: var(--color-gray-50); }
+        .reg-table .reg-now td { background: rgba(239,68,68,0.04); }
+        .reg-table .reg-now td:first-child { color: var(--color-danger); font-size: var(--font-size-base); }
+
+        @media (max-width: 768px) {
+            .probability-grid,
+            .adoption-stats,
+            .hardware-milestones,
+            .mosca-sliders {
+                grid-template-columns: 1fr;
+            }
+            .adoption-event { flex-direction: column; gap: var(--spacing-1); }
+        }
     </style>
+
+    <script>
+    function updateMosca() {
+        const shelf = parseInt(document.getElementById('mosca-shelf').value);
+        const migration = parseInt(document.getElementById('mosca-migration').value);
+        document.getElementById('mosca-shelf-val').textContent = shelf + (shelf === 1 ? ' year' : ' years');
+        document.getElementById('mosca-migration-val').textContent = migration + (migration === 1 ? ' year' : ' years');
+
+        const crqcMin = 5, crqcMax = 15;
+        const total = shelf + migration;
+        const equation = document.getElementById('mosca-equation');
+        equation.textContent = `Data shelf life (${shelf}y) + Migration time (${migration}y) = ${total} years   |   Estimated Q-Day window: ${crqcMin}–${crqcMax} years`;
+
+        const verdict = document.getElementById('mosca-verdict');
+        if (total > crqcMin) {
+            verdict.className = 'mosca-verdict at-risk';
+            verdict.innerHTML = `⚠ At Risk — Your combined timeline (${total} years) exceeds the earliest credible Q-Day estimate (${crqcMin} years). Data encrypted today may be decrypted before it loses sensitivity.`;
+        } else if (total > crqcMin - 2) {
+            verdict.className = 'mosca-verdict borderline';
+            verdict.innerHTML = `⚡ Borderline — You have limited margin. Any delay in starting your migration or a faster-than-expected Q-Day would put your data at risk.`;
+        } else {
+            verdict.className = 'mosca-verdict safe';
+            verdict.innerHTML = `✓ Lower Risk — Your timeline appears manageable, but only if migration begins now. Monitor quantum hardware progress — estimates are rising each year.`;
+        }
+    }
+    document.addEventListener('DOMContentLoaded', updateMosca);
+    </script>
 </body>
 </html>
