@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quantum-safe-v1';
+const CACHE_NAME = 'quantum-safe-v2';
 
 const PRECACHE_ASSETS = [
   '/',
